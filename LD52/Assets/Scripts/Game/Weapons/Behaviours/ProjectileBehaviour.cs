@@ -16,6 +16,8 @@ public class ProjectileBehaviour : MonoBehaviour, IWeaponBehaviour
             FirePoint.rotation,
             transform.position
         );
+
+        Context.current.Shake.Shake(0.1f, 0.05f);
     }
 
     public void UpdateBehaviour(Vector3 Target)

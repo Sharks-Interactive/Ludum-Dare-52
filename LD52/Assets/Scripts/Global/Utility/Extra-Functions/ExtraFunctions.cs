@@ -18,6 +18,9 @@ namespace SharkUtils
             public static GameObject Value;
         }
 
+        public static bool ApproximatelyEqual(this Vector3 a, Vector3 b, float error = 10) =>
+            Math.Abs(a.AbsSumOfVector3() - b.AbsSumOfVector2()) < error;
+
         /// <summary>
         /// Using the Show and Hide canvasgroup functions, make a canvas group visible/invisible
         /// </summary>

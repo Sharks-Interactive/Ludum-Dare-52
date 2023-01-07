@@ -8,4 +8,5 @@ public class Context
 
     public bool IsRunning = true;
     public Camera MainCamera;
+    public CameraShake Shake;
 }

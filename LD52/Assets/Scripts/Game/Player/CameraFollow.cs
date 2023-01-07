@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    public Transform Effector;
     public Transform target;
     public float damping = 1;
     public float lookAheadFactor = 3;
@@ -16,14 +17,17 @@ public class CameraFollow : MonoBehaviour
 
     private void Awake()
     {
-        Context.current.MainCamera = GetComponent<Camera>();
+        if (Effector == null) Effector = transform;
+
+        if (gameObject.name.Contains("Camera"))
+            Context.current.MainCamera = GetComponent<Camera>();
     }
 
     // Use this for initialization
     private void Start()
     {
         m_LastTargetPosition = target.position;
-        m_OffsetZ = (transform.position - target.position).z;
+        m_OffsetZ = (Effector.position - target.position).z;
         //  transform.parent = null;
     }
 
@@ -46,9 +50,9 @@ public class CameraFollow : MonoBehaviour
         }
 
         Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward * m_OffsetZ;
-        Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref m_CurrentVelocity, damping);
+        Vector3 newPos = Vector3.SmoothDamp(Effector.position, aheadTargetPos, ref m_CurrentVelocity, damping);
 
-        transform.position = newPos;
+        Effector.position = newPos;
 
         m_LastTargetPosition = target.position;
     }
