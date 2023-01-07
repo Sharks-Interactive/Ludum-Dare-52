@@ -1,4 +1,4 @@
-# Sharks Interactive: Ludum Dare 52
+# Sharks Interactive: Ludum Dare 52  
 This is the public repo for Sharks Interactive's Ludum Dare 52 entry. [See the LDJAM entry here!](https://ldjam.com/events/ludum-dare/52/$313732)
 It primarily utilizes the following:
 ```

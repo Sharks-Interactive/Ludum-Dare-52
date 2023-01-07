@@ -1,4 +1,3 @@
-using Chrio.World;
 using UnityEngine;
 
 namespace Chrio.Effects
@@ -49,7 +48,5 @@ namespace Chrio.Effects
 			ShakeAmount = Amplitude;
 			DecreaseFactor = Decay;
 		}
-
-		public static void Shake(Game_State.State GlobaState, float Duration = 0.2f, float Amplitude = 0.7f, float Decay = 1.0f) => GlobaState.Game.Shake.Shake(Duration, Amplitude, Decay);
 	}
 }
