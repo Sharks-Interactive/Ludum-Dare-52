@@ -4,8 +4,8 @@ module.exports = {
       src: '/',
     },
     plugins: [
+      '@snowpack/plugin-svelte',
       '@snowpack/plugin-typescript',
-      '@snowpack/plugin-svelte'
     ],
     devOptions: {
       port: 5000,

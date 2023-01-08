@@ -4,7 +4,8 @@
   "description": "Sharks Interactive's Ludum Dare 52 entry.",
   "main": "index.html",
   "scripts": {
-    "dev": "snowpack dev"
+    "dev": "snowpack dev",
+    "build": "snowpack build"
   },
   "repository": {
     "type": "git",
