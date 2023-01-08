@@ -1,4 +1,5 @@
-import { Card } from "./Card";
+import type { Card } from "./Card";
+import { IntroCard } from "./Cards/IntroCard";
 import type { Effect } from "./Effect";
 
 export class GameState {
@@ -18,5 +19,5 @@ export class GameState {
     /** Every active effect, effects are removed after expiring */
     activeEffects: Effect[] = [];
 
-    currentCard: Card = new Card();
+    currentCard: Card = new IntroCard();
 }

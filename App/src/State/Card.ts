@@ -2,10 +2,6 @@ import { Effect } from "./Effect";
 import type { GameState } from "./GameState";
 
 export class Card {
-    constructor() {
-        
-    }
-
     /** A unique identifier for this card */
     id: string = '';
     /** Multiplier on how often this card can be picked */
@@ -31,5 +27,5 @@ export class Card {
     /** ID's of any cards that prevent this card from showing */
     blockerIds: string[] = [];
 
-    requirementsFullfilled(state: GameState): boolean { return false; }
+    requirementsFullfilled(state: GameState): boolean { return true; }
 }

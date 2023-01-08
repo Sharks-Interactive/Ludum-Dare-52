@@ -14,6 +14,8 @@
     const dispatch = createEventDispatcher();
 
     function onSubmitChoice(index: number) {
+        if (!selected) return;
+
         // Execute it and get a new choice in here
         selected = false;
         dispatch('submit', {
@@ -67,12 +69,13 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             on:click={event => onCardClick(event)} id="ts-card"
-            class="card text-bg-dark mb-3 infoCard {selected ? `card${side}` : ''}" style="margin-top: auto; background-color: #212529;">
+            class="card text-bg-dark mb-3 infoCard {selected ? `card${side}` : ''}"
+             style="margin-top: auto; background-color: #212529;">
             <div class="card-body">
               <h5 class="card-title">{state.currentCard.title}</h5>
               <p class="card-text">{state.currentCard.description}</p>
             </div>
-            <div class="card-footer">{state.currentCard.footer}</div>
+            <div class="card-footer"><em>{state.currentCard.footer}</em></div>
         </div>
 
         <button type="button" class="btn w-100 btn-outline-{sides.indexOf(side) ? 'success' : 'danger'}" 
@@ -112,5 +115,4 @@
 
         transition-duration: 0.5s;
     }
-
 </style>

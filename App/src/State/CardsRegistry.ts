@@ -1,6 +1,35 @@
 import type { Card } from "./Card";
+import { AttackedCard } from "./Cards/AttackedCard";
+import { AttackedLogCard } from "./Cards/AttackLogCard";
+import { BridgeAccident } from "./Cards/BridgeAccident";
+import { BudgetCard } from "./Cards/BudgetCard";
+import { CoffeeShortageCard } from "./Cards/CoffeeShortage";
+import { DiscoverCard } from "./Cards/FoundOut";
 import { IntroCard } from "./Cards/IntroCard";
+import { LogisticsCard } from "./Cards/LogisticsCard";
+import { LudumDareCard } from "./Cards/LudumDareCard";
+import { MeltdownCard } from "./Cards/MeltdownCard";
+import { OutrageCard } from "./Cards/OutrageCard";
+import { RaiseMilitaryCard } from "./Cards/RaiseMilitaryCardOne";
+import { NuclearCard } from "./Cards/TheNuclearOptionCard";
+import { TryDiplomacyCard } from "./Cards/TryDiplomacyCard";
+import { UninhabitableCard } from "./Cards/UninhabitableCard";
 
 export const gameCards: Card[] = [
-    new IntroCard()
+    new IntroCard(),
+    new TryDiplomacyCard(),
+    new RaiseMilitaryCard(),
+    new AttackedCard(),
+    new LudumDareCard(),
+    new NuclearCard(),
+    new MeltdownCard(),
+    new UninhabitableCard(),
+    new BudgetCard(),
+    new LogisticsCard(),
+    // 10
+    new AttackedLogCard(),
+    new OutrageCard(),
+    new CoffeeShortageCard(),
+    new BridgeAccident(),
+    new DiscoverCard(),
 ];
