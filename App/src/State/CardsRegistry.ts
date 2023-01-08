@@ -4,6 +4,7 @@ import { AttackedLogCard } from "./Cards/AttackLogCard";
 import { BridgeAccident } from "./Cards/BridgeAccident";
 import { BudgetCard } from "./Cards/BudgetCard";
 import { CoffeeShortageCard } from "./Cards/CoffeeShortage";
+import { DailyNewsCard } from "./Cards/DailyNewsCard";
 import { DiscoverCard } from "./Cards/FoundOut";
 import { IntroCard } from "./Cards/IntroCard";
 import { LogisticsCard } from "./Cards/LogisticsCard";
@@ -32,4 +33,6 @@ export const gameCards: Card[] = [
     new CoffeeShortageCard(),
     new BridgeAccident(),
     new DiscoverCard(),
+    new DailyNewsCard(),
+    
 ];

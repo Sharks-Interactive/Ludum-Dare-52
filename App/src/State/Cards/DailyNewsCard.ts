@@ -2,37 +2,38 @@ import { Card } from "../Card";
 import { Effect, Stat } from "../Effect";
 import type { GameState } from "../GameState";
 
-export class AttackedCard extends Card {
+export class DailyNewsCard extends Card {
     /** A unique identifier for this card */
-    id: string = 'attackedbyp';
+    id: string = 'dailynews';
     /** Multiplier on how often this card can be picked */
-    rarity: number = 0.8;
+    rarity: number = 1;
     /** If this card can only be shown once */
-    unique: boolean = false;
+    unique: boolean = true;
 
-    title: string = 'attacked!';
+    title: string = 'Pony Express';
     description: string = `
-        It is a tradgedy. The Army Of the Ponies has launched missiles against our city center because
-        our military is too weak to stop them. The public is outraged. We must promise we will retaliate
-        and prevent this from happening again.
+        Today we tried three different upscale steakhouses in the heart of Pony City to decide which one is better.
+        Pork House ranked the worst, with The Zeb Raw coming in second worst and Defenitely Not Sentient Cows™ being last.
+        After eating, we each developed a sore throat. We are unsure if it was because of the food but the doctor told me I
+        will be ok and I am just a little hoarse. 
     `;
 
     /** If the card has special options, besides just yes/no */
-    options: string[] = ['no', 'let us strike!'];
-    footer: string = 'will prevent diplomacy';
+    options: string[] = ['terrible journalism...', 'i like this article'];
+    footer: string = '10-11-2000';
 
     /** A list of effects  */
     effects: Effect[][] = [
         [ // Effects if the user selects negative
             new Effect(0, Stat.military),
-            new Effect(-10, Stat.popular),
+            new Effect(0, Stat.popular),
             new Effect(0, Stat.finance),
             new Effect(0, Stat.nature)
         ],
         [ // Effects if the user selects positive
-            new Effect(4, Stat.military, 2),
-            new Effect(2, Stat.popular),
-            new Effect(-2, Stat.finance, 2),
+            new Effect(0, Stat.military),
+            new Effect(0, Stat.popular),
+            new Effect(0, Stat.finance),
             new Effect(0, Stat.nature)
         ]
     ];
@@ -42,7 +43,5 @@ export class AttackedCard extends Card {
     /** ID's of any cards that prevent this card from showing */
     blockerIds: string[] = [];
 
-    requirementsFullfilled(state: GameState): boolean { 
-        return state.stats[Stat.military] < 25;
-     }
+    requirementsFullfilled(state: GameState): boolean { return true; }
 }
