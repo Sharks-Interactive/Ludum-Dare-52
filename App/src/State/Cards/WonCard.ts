@@ -8,8 +8,7 @@ export class WonCard extends Card {
 
         this.description = `
             Congrats you won by ${winMsg}. That's it. Thank you so much for playing. Rate my game if you'd like.
-            You can keep hitting buttons and see what happens and stuff but if you do.. just.. good luck.
-            Or you can refresh to play again.
+            You can refresh to play again and try to get a different ending.
         `;
     }
     /** A unique identifier for this card */
@@ -19,7 +18,7 @@ export class WonCard extends Card {
     /** If this card can only be shown once */
     unique: boolean = true;
 
-    title: string = 'you won.';
+    title: string = '🏆';
     description: string;
 
     /** If the card has special options, besides just yes/no */

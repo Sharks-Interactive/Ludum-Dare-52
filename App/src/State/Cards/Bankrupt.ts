@@ -8,29 +8,30 @@ export class BankruptCard extends Card {
     /** Multiplier on how often this card can be picked */
     rarity: number = 1;
     /** If this card can only be shown once */
-    unique: boolean = true;
+    unique: boolean = false;
 
     title: string = 'bankruptcy.';
     description: string = `
-        The Pony Planet government is going to be bankrupt. We will have no choice but to heavily raise taxes;
+        The Pony Planet government is going to be bankrupt. We will have no choice but to heavily raise taxes
+        or cut back on military spending.
     `;
 
     /** If the card has special options, besides just yes/no */
-    options: string[] = ['hold out for just a little....', 'ok...'];
+    options: string[] = ['cut back the military', 'raise taxes'];
     footer: string = 'nothing is certain but death and taxes';
 
     /** A list of effects  */
     effects: Effect[][] = [
         [ // Effects if the user selects negative
-            new Effect(0, Stat.military),
+            new Effect(-23, Stat.military),
             new Effect(0, Stat.popular),
-            new Effect(0, Stat.finance),
+            new Effect(15, Stat.finance),
             new Effect(0, Stat.nature)
         ],
         [ // Effects if the user selects positive
             new Effect(0, Stat.military),
-            new Effect(-12, Stat.popular),
-            new Effect(5, Stat.finance),
+            new Effect(-5, Stat.popular),
+            new Effect(3, Stat.finance),
             new Effect(0, Stat.nature)
         ]
     ];

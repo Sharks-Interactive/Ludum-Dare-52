@@ -10,7 +10,7 @@ export class SportingCard extends Card {
     /** If this card can only be shown once */
     unique: boolean = true;
 
-    title: string = '🏆';
+    title: string = 'the mane event.';
     description: string = `
         The final of a huge sporting event is coming up, the public might like it if you were to be seen attending
         in support of the Pony Planet National Team. It will be expensive to safely transport you though.

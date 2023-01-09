@@ -32,7 +32,7 @@
         display: flex;
         flex-direction: row;
 
-        margin: 5%;
+        margin: 2% 5% 2% 5%;
         gap: 5px;
 
         align-items: center;

@@ -13,21 +13,23 @@
                 class="w-100 text-{selection == 'abt' ? 'success' : 'secondary'}">about</h5>
             <h5 on:click="{() => selection = 'docs'}" 
                 class="w-100 text-{selection == 'docs' ? 'success' : 'secondary'}">how to play</h5>
-            <button type="button" class="btn-close" on:click="{() => open = false}"></button>
+            <button type="button" class="btn-close btn-close-white" on:click="{() => open = false}"></button>
         </div>
         <div>
+            <p>
             {#if selection == 'abt'}
                 this, is horsepower. It is set in my little universe. I'm glad you have taken the time to play it.
                 I can't tell you how thankful I am I get to sit here listening to awesome music and
                 making little games at ungodly hours of the morning after working for hours straight.
                 <br/>
                 I am particularly
-                proud of this little project. I know it is stupid and I didn't have time for a win/lose condition,
-                (maybe if I worked on that instead of this...) but it is really a piece of me and I really enjoyed
-                working on it for once. I truly had a blast - for the first time since LD47.
+                proud of this little project. I know it is kinda stupid and doesn't have a lot of depth
+                (maybe if I spent time on the actual gameplay instead of making an about page...) 
+                but it is really a piece of me and I really enjoyed working on it for once.
+                I truly had a blast - for the first time since LD47.
                 <br />
                 <br />
-                Credits.
+                <strong>Credits.</strong>
                 <br />
                 This 'game' was made for Ludum Dare 52, by me, Owen Silva.
                 I work alone and made this game alone, but it is still the product of multiple people.
@@ -52,20 +54,21 @@
                 impacts what events and opportunities you will have in the future.
                 <br />
                 <br />
-                Playing.
+                <strong>Playing.</strong>
                 <br />
                 this is intended to be a mobile game, for best results open your browsers devtools and enable the phone emulator.
                 yeah, yeah I know its not ideal. The game will work on normal desktop but just.. out of proportion and with werid
                 hover effects.
                 <br />
                 <br />
-                Winning.
+                <strong>Winning.</strong>
                 <br />
                 There is a win condition or two, but it is really really incredibly easy to softlock yourself. So just go until your
                 happy, refresh and play again if you want and that is about it. Have fun!
                 P.S. You'll really want to accept everything that comes your way relating to the dinosaurs... just saying. You dont have to
                 and maybe dont your first time through, but after that...
             {/if}
+            </p>
         </div>
     </div>
 </div>
@@ -75,8 +78,8 @@
     .abModal {
         position: fixed;
 
-        width: 100%;
-        height: 100%;
+        overflow-y:scroll;
+        overflow-x:hidden;
 
         z-index: 100;
 
