@@ -12,13 +12,13 @@
     let effects: number[] = [0, 0, 0, 0];
 
     const selectionSounds = [
-      new Audio("../assets/selectNo.mp3"),
-      new Audio("../assets/selectYes.mp3"),
+      new Audio("assets/selectNo.mp3"),
+      new Audio("assets/selectYes.mp3"),
     ];
 
     const swipeSounds = [
-      new Audio("../assets/cardswipe.mp3"),
-      new Audio("../assets/cardswipetwo.mp3"),
+      new Audio("assets/cardswipe.mp3"),
+      new Audio("assets/cardswipetwo.mp3"),
     ];
 
     function selectCard(event: any) {
