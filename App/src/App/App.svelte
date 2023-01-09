@@ -11,8 +11,10 @@
 
     let effects: number[] = [0, 0, 0, 0];
 
-    const noSound = new Audio("../assets/selectNo.mp3");
-    const yesSound = new Audio("../assets/selectYes.mp3");
+    const selectionSounds = [
+      new Audio("../assets/selectNo.mp3"),
+      new Audio("../assets/selectYes.mp3"),
+    ];
 
     const swipeSounds = [
       new Audio("../assets/cardswipe.mp3"),
@@ -26,8 +28,7 @@
       }
       effects = ComputeImpact(state.currentCard.effects[event.detail.choice]);
 
-      if (event.detail.choice == 0) noSound.play();
-      else yesSound.play();
+      selectionSounds[event.detail.choice].play();
     }
 
     function submitCard(event: any) {
@@ -58,6 +59,13 @@
   .App {
     display: grid;
     height: 100vh;
+
+    max-width: 425px;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    background-color: #181d22;
 
     grid-template-rows: 0.2fr 3fr 1.05fr;
   }

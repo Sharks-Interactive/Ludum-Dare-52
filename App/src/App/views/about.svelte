@@ -17,7 +17,6 @@
         </div>
         <div>
             {#if selection == 'abt'}
-                <br />
                 this, is horsepower. It is set in my little universe. I'm glad you have taken the time to play it.
                 I can't tell you how thankful I am I get to sit here listening to awesome music and
                 making little games at ungodly hours of the morning after working for hours straight.
@@ -39,6 +38,14 @@
                 <br />
                 <br />
                 I love you, bestie &lt;3
+                <br />
+                <br />
+                9-1-23
+                <br /><br /><br />
+                <div class="d-flex" style="justify-content: center;">
+                    <img src="../assets/logo.png" style="width: 25px; height: 25px;">
+                    <h4>Sharks Interactive</h4>
+                </div>
             {:else}
                 horsepower is a game about making decisions, in the same as sort the court (also a LD game!) and reigns.
                 Every decision you make impacts your stats, displayed on the bottom of the screen. Each decision also

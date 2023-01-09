@@ -74,6 +74,9 @@
             <div class="card-body">
               <h5 class="card-title">{state.currentCard.title}</h5>
               <p class="card-text">{state.currentCard.description}</p>
+              {#if state.currentCard.id === 'funcle'}
+                <img src="../assets/propagandaProcessed.png" style="height: 200px;">
+              {/if}
             </div>
             <div class="card-footer"><em>{state.currentCard.footer}</em></div>
         </div>
