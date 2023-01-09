@@ -40,7 +40,9 @@ function solveForNextCard(state: GameState): Card {
     // - filter out cards whose prequisites are not satisfied
     // - filter out cards who are unique and we've already had
     // - randomly pick a card based on its rarity
-    let cardChoices: Card[] = gameCards.filter(card => !(card.unique && state.ownedCards.includes(card.id)));
+    let cardChoices: Card[] = gameCards.filter(card => !(
+        (card.unique && state.ownedCards.includes(card.id)) || state.currentCard == card
+    ));
     console.log(cardChoices);
     cardChoices = cardChoices.filter(card => card.requirementsFullfilled(state));
     console.log(cardChoices);
@@ -52,6 +54,8 @@ function solveForNextCard(state: GameState): Card {
     // in financial criseses.. is that a word? it's 02:30 something rn
     let card = weightedRandomCard(cardChoices, cardChoices.map(card => card.rarity));
     if (card == undefined || cardChoices.length < 1) return new EmptyCard();
+
+    console.log(card)
 
     return card;
 }
@@ -70,3 +74,46 @@ function weightedRandomCard(items: Card[], weights: number[]) {
     
     return items[i];
 }
+
+// Sentient horses
+// Blowback from discovery of embezzlement
+// death of musiciain
+// funcle propoganda
+// public presence
+// food safety
+// school funding
+// violence & terrorism
+// op-ed on marriage
+// something is wrong in the village
+// polic state.. stop it?
+// open borders to whales?
+// FREE SPEECH BLOWBACK
+// election
+// mental health crisis
+// dinosaur support
+// renewable energy
+// misinformation / 5g
+// horses gaining sentience
+// burn out
+// immigration concerns (after open borders)
+// open borders to dinos
+// establish embassy with dinos
+// establish embassy with whales
+// work closely with dinos (if embassy + support)
+// allow dinosaurs full citizenship (if working closely)
+// share intelligence with dinosaurs (if citizenship)
+// combine military with dinosaurs (if intelligence)
+// allow dinosaurs to hold leadership positions (if combine military)
+// fully integrate with dinosaurs, allow them to make Pony Planet capitol (if hold leadership)
+// launch first assault with dinosaurs (if fully integrated)
+// The Funcle on run (if assault)
+// Request extra support from whales (if Funcle on run)
+// Allow whales citizenship (if dinosaurs citizenship)
+// Authorise state of emergency and maximum military spending
+// Authorise indiscriminate bombardment
+// Negotiate terms of surrender with The Funcle's army
+// Statement anouncing victory and thanking whales and dinos
+
+// public happy with mhealth response
+// public happy with dinosaurs
+// public dissapointed with no immigration (allow an out)

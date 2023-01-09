@@ -10,14 +10,17 @@ export class BioMechCard extends Card {
     /** If this card can only be shown once */
     unique: boolean = true;
 
-    title: string = 'biomechanic';
+    title: string = 'biomech';
     description: string = `
-        Some quick example text to build on the card title and make up the bulk of the cards content.
+        The Funcle's military might become too strong for us. We need something to get an advantage.
+        Our GAOH R&D division says they may have some breakthroughs in biomechanics, they believe they
+        can create a super soldier with mechanical limbs. They will need funding, and authorisation as this
+        testing will not be... humane.
     `;
 
     /** If the card has special options, besides just yes/no */
-    options: string[] = ['no', 'yes'];
-    footer: string = '1-8-2023';
+    options: string[] = ['i cant do that', 'a neccessary sacrifice'];
+    footer: string = 'government secret labs are so 80s';
 
     /** A list of effects  */
     effects: Effect[][] = [

@@ -2,36 +2,36 @@ import { Card } from "../Card";
 import { Effect, Stat } from "../Effect";
 import type { GameState } from "../GameState";
 
-export class DiscoverCard extends Card {
+export class HappyWDinosCard extends Card {
     /** A unique identifier for this card */
-    id: string = 'discoveredc';
+    id: string = 'happyWdinos';
     /** Multiplier on how often this card can be picked */
-    rarity: number = 1;
+    rarity: number = 0.95;
     /** If this card can only be shown once */
-    unique: boolean = true;
+    unique: boolean = false;
 
-    title: string = 'Pony Express';
+    title: string = 'nouvel amis.';
     description: string = `
-        An article in the Pony Express today reads, "...and the evidence that was recovered proves that President Choclate
-        embezzled millions in cash from funds that were intended to go towards the Grand Army Of the Horses.
+        The public is very happy with the presence of the dinosaurs. They have taken a liking to them and see the value
+        they contribute to the Pony Planet economy, and our military.
     `;
 
     /** If the card has special options, besides just yes/no */
-    options: string[] = ['uh oh.', 'I will pay it back!'];
-    footer: string = `Pony Planet's #1 News Source`;
+    options: string[] = ['they should be thanking me', 'very good'];
+    footer: string = `yea, I kinda like 'em now, too`;
 
     /** A list of effects  */
     effects: Effect[][] = [
         [ // Effects if the user selects negative
             new Effect(0, Stat.military),
-            new Effect(-7, Stat.popular),
+            new Effect(8, Stat.popular),
             new Effect(0, Stat.finance),
             new Effect(0, Stat.nature)
         ],
         [ // Effects if the user selects positive
             new Effect(0, Stat.military),
-            new Effect(0, Stat.popular),
-            new Effect(-12, Stat.finance),
+            new Effect(8, Stat.popular),
+            new Effect(0, Stat.finance),
             new Effect(0, Stat.nature)
         ]
     ];
@@ -41,7 +41,5 @@ export class DiscoverCard extends Card {
     /** ID's of any cards that prevent this card from showing */
     blockerIds: string[] = [];
 
-    requirementsFullfilled(state: GameState): boolean { 
-        return state.ownedCards.includes('budget-y'); 
-    }
+    requirementsFullfilled(state: GameState): boolean { return state.ownedCards.includes('BordersDinosCard-y'); }
 }

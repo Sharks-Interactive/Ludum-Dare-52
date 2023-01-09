@@ -2,36 +2,35 @@ import { Card } from "../Card";
 import { Effect, Stat } from "../Effect";
 import type { GameState } from "../GameState";
 
-export class DiscoverCard extends Card {
+export class ViolenceCard extends Card {
     /** A unique identifier for this card */
-    id: string = 'discoveredc';
+    id: string = 'ViolenceCard';
     /** Multiplier on how often this card can be picked */
     rarity: number = 1;
     /** If this card can only be shown once */
     unique: boolean = true;
 
-    title: string = 'Pony Express';
+    title: string = 'violence & terrorism';
     description: string = `
-        An article in the Pony Express today reads, "...and the evidence that was recovered proves that President Choclate
-        embezzled millions in cash from funds that were intended to go towards the Grand Army Of the Horses.
+        Pony Planet is experiencing some of the highest rates of violence and terrorism ever. We should crackdown on this.
     `;
 
     /** If the card has special options, besides just yes/no */
-    options: string[] = ['uh oh.', 'I will pay it back!'];
-    footer: string = `Pony Planet's #1 News Source`;
+    options: string[] = ['leave it be', 'create a team'];
+    footer: string = 'wanna dragggg man?';
 
     /** A list of effects  */
     effects: Effect[][] = [
         [ // Effects if the user selects negative
-            new Effect(0, Stat.military),
-            new Effect(-7, Stat.popular),
+            new Effect(-3, Stat.military),
+            new Effect(0, Stat.popular),
             new Effect(0, Stat.finance),
-            new Effect(0, Stat.nature)
+            new Effect(-5, Stat.nature)
         ],
         [ // Effects if the user selects positive
-            new Effect(0, Stat.military),
+            new Effect(3, Stat.military),
             new Effect(0, Stat.popular),
-            new Effect(-12, Stat.finance),
+            new Effect(-6, Stat.finance),
             new Effect(0, Stat.nature)
         ]
     ];
@@ -41,7 +40,5 @@ export class DiscoverCard extends Card {
     /** ID's of any cards that prevent this card from showing */
     blockerIds: string[] = [];
 
-    requirementsFullfilled(state: GameState): boolean { 
-        return state.ownedCards.includes('budget-y'); 
-    }
+    requirementsFullfilled(state: GameState): boolean { return true; }
 }

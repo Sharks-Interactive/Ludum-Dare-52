@@ -2,36 +2,36 @@ import { Card } from "../Card";
 import { Effect, Stat } from "../Effect";
 import type { GameState } from "../GameState";
 
-export class DiscoverCard extends Card {
+export class FuncleDeadCard extends Card {
     /** A unique identifier for this card */
-    id: string = 'discoveredc';
+    id: string = 'nofuncle';
     /** Multiplier on how often this card can be picked */
-    rarity: number = 1;
+    rarity: number = 0.004;
     /** If this card can only be shown once */
     unique: boolean = true;
 
-    title: string = 'Pony Express';
+    title: string = 'killed.';
     description: string = `
-        An article in the Pony Express today reads, "...and the evidence that was recovered proves that President Choclate
-        embezzled millions in cash from funds that were intended to go towards the Grand Army Of the Horses.
+        Our operation was successfull, the Funcle has been confirmed dead. Despite this The Army Of the Ponies has
+        not given in yet, unfortunately.
     `;
 
     /** If the card has special options, besides just yes/no */
-    options: string[] = ['uh oh.', 'I will pay it back!'];
-    footer: string = `Pony Planet's #1 News Source`;
+    options: string[] = ['good to hear', 'the public will love this'];
+    footer: string = 'ladies and gentlemen, we got him';
 
     /** A list of effects  */
     effects: Effect[][] = [
         [ // Effects if the user selects negative
-            new Effect(0, Stat.military),
-            new Effect(-7, Stat.popular),
+            new Effect(5, Stat.military),
+            new Effect(15, Stat.popular),
             new Effect(0, Stat.finance),
             new Effect(0, Stat.nature)
         ],
         [ // Effects if the user selects positive
-            new Effect(0, Stat.military),
-            new Effect(0, Stat.popular),
-            new Effect(-12, Stat.finance),
+            new Effect(5, Stat.military),
+            new Effect(15, Stat.popular),
+            new Effect(0, Stat.finance),
             new Effect(0, Stat.nature)
         ]
     ];
@@ -42,6 +42,6 @@ export class DiscoverCard extends Card {
     blockerIds: string[] = [];
 
     requirementsFullfilled(state: GameState): boolean { 
-        return state.ownedCards.includes('budget-y'); 
+        return state.ownedCards.includes('killfuncle-y') && !state.ownedCards.includes('yesfuncle');
     }
 }

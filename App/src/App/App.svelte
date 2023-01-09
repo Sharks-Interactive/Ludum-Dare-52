@@ -34,7 +34,8 @@
 
 <div class="App">
   <div>
-    <h1>Game about Horses - {count}</h1>
+    <h1>Horsepower - {count}s</h1>
+    <h4>{state.turnNumber} turn{state.turnNumber == 1 ? '' : 's'}</h4>
   </div>
   <Gameview on:select="{selectCard}" on:submit="{submitCard}" state="{state}"></Gameview>
   <Bottombar effects="{effects}" state="{state}"></Bottombar>
