@@ -2,36 +2,35 @@ import { Card } from "../Card";
 import { Effect, Stat } from "../Effect";
 import type { GameState } from "../GameState";
 
-export class BridgeAccident extends Card {
+export class TheFuncleCard extends Card {
     /** A unique identifier for this card */
-    id: string = 'bridgeaccident';
+    id: string = 'funcle';
     /** Multiplier on how often this card can be picked */
-    rarity: number = 1.2;
+    rarity: number = 8;
     /** If this card can only be shown once */
     unique: boolean = true;
 
-    title: string = 'accident.';
+    title: string = `The 'Funcle'`;
     description: string = `
-        There was an accident over by the Nrėaeh Nah memorial drydocks when a worker fell
-        asleep whilist operating heavy machinery. This is what you get for refusing to caffeinate
-        your citizens!
+        One horse has emerged as the leader of the Army of the Ponies and the movement to enslave every pony.
+        He seems mysterious, and calls himself 'The Funcle'.
     `;
 
     /** If the card has special options, besides just yes/no */
-    options: string[] = ['oh well', 'a tradgedy...'];
-    footer: string = 'sleep well';
+    options: string[] = ['no', 'interesting'];
+    footer: string = 'like.. the fun uncle.. right?!';
 
     /** A list of effects  */
     effects: Effect[][] = [
         [ // Effects if the user selects negative
             new Effect(0, Stat.military),
-            new Effect(-1, Stat.popular),
+            new Effect(0, Stat.popular),
             new Effect(0, Stat.finance),
             new Effect(0, Stat.nature)
         ],
         [ // Effects if the user selects positive
             new Effect(0, Stat.military),
-            new Effect(-1, Stat.popular),
+            new Effect(0, Stat.popular),
             new Effect(0, Stat.finance),
             new Effect(0, Stat.nature)
         ]
@@ -42,7 +41,5 @@ export class BridgeAccident extends Card {
     /** ID's of any cards that prevent this card from showing */
     blockerIds: string[] = [];
 
-    requirementsFullfilled(state: GameState): boolean { 
-        return state.ownedCards.includes('coffeeshortage-n'); 
-    }
+    requirementsFullfilled(state: GameState): boolean { return true; }
 }

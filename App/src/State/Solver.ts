@@ -44,6 +44,7 @@ function solveForNextCard(state: GameState): Card {
     console.log(cardChoices);
     cardChoices = cardChoices.filter(card => card.requirementsFullfilled(state));
     console.log(cardChoices);
+    // TODO: Only repeat non unique cards twice then drop them
     // TODO: /sidenote - should cards be given state and compute their rarity
     // on each selection? This would allow e.g. financial problems being rare
     // but becoming super (3x ish) common when the player is struggling
