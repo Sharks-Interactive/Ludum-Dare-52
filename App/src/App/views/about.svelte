@@ -56,6 +56,8 @@
                 <br />
                 There is a win condition or two, but it is really really incredibly easy to softlock yourself. So just go until your
                 happy, refresh and play again if you want and that is about it. Have fun!
+                P.S. You'll really want to accept everything that comes your way relating to the dinosaurs... just saying. You dont have to
+                and maybe dont your first time through, but after that...
             {/if}
         </div>
     </div>

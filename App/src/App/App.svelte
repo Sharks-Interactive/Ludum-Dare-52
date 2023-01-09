@@ -11,17 +11,30 @@
 
     let effects: number[] = [0, 0, 0, 0];
 
+    const noSound = new Audio("../assets/selectNo.mp3");
+    const yesSound = new Audio("../assets/selectYes.mp3");
+
+    const swipeSounds = [
+      new Audio("../assets/cardswipe.mp3"),
+      new Audio("../assets/cardswipetwo.mp3"),
+    ];
+
     function selectCard(event: any) {
       if (event.detail.choice == -1) {
         effects = [0, 0, 0, 0];
         return;
       }
       effects = ComputeImpact(state.currentCard.effects[event.detail.choice]);
+
+      if (event.detail.choice == 0) noSound.play();
+      else yesSound.play();
     }
 
     function submitCard(event: any) {
       state = advance(state, event.detail.choice);
       effects = [0, 0, 0, 0];
+
+      swipeSounds[Math.round(Math.random())].play();
     }
 
     onMount(() => {
