@@ -12,8 +12,7 @@ export class FuncleDeadCard extends Card {
 
     title: string = 'killed.';
     description: string = `
-        Our operation was successfull, the Funcle has been confirmed dead. Despite this The Army Of the Ponies has
-        not given in yet, unfortunately.
+        Our operation was successfull, the Funcle has been confirmed dead.
     `;
 
     /** If the card has special options, besides just yes/no */

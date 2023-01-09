@@ -6,7 +6,7 @@ export class VictoryStatementCard extends Card {
     /** A unique identifier for this card */
     id: string = 'vpday';
     /** Multiplier on how often this card can be picked */
-    rarity: number = 3;
+    rarity: number = 300;
     /** If this card can only be shown once */
     unique: boolean = true;
 
@@ -42,5 +42,7 @@ export class VictoryStatementCard extends Card {
     /** ID's of any cards that prevent this card from showing */
     blockerIds: string[] = [];
 
-    requirementsFullfilled(state: GameState): boolean { return state.ownedCards.includes('funsurrender-y'); }
+    requirementsFullfilled(state: GameState): boolean { 
+        return state.ownedCards.includes('funsurrender-y') || state.ownedCards.includes('nofuncle'); 
+    }
 }

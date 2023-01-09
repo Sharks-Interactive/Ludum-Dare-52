@@ -12,7 +12,7 @@ export class AssasinationCard extends Card {
 
     title: string = 'assasination attempt!';
     description: string = `
-        Pony Planet Joint Special Operations Command has just inerdicted a group of rebels hell bent on assasinating you.
+        Pony Planet Joint Special Operations Command has just interdicted a group of rebels hell bent on assasinating you.
         We need to increase your security.
     `;
 

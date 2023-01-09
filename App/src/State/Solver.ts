@@ -1,6 +1,10 @@
 import type { Card } from "./Card";
 import { EmptyCard } from "./Cards/EmptyCard";
+import { LoseCard } from "./Cards/LoseCard";
+import { StartOverCard } from "./Cards/StartOver";
+import { WonCard } from "./Cards/WonCard";
 import { gameCards } from "./CardsRegistry";
+import { Stat } from "./Effect";
 import type { GameState } from "./GameState";
 
 export function advance(currentState: GameState, choice: number): GameState {
@@ -30,6 +34,14 @@ export function advance(currentState: GameState, choice: number): GameState {
     ]);
 
     // Pick a new card
+    if (currentState.currentCard.id == 'no-cards-left') {
+        if (choice == 0) currentState.ownedCards = [];
+        else {
+            currentState.currentCard = new StartOverCard();
+            return currentState;
+        }
+    }
+
     currentState.currentCard = solveForNextCard(currentState);
     
     return currentState;
@@ -43,27 +55,30 @@ function solveForNextCard(state: GameState): Card {
     let cardChoices: Card[] = gameCards.filter(card => !(
         (card.unique && state.ownedCards.includes(card.id)) || state.currentCard == card
     ));
-    console.log(cardChoices);
     cardChoices = cardChoices.filter(card => card.requirementsFullfilled(state));
-    console.log(cardChoices);
     // TODO: Only repeat non unique cards twice then drop them
     // TODO: /sidenote - should cards be given state and compute their rarity
     // on each selection? This would allow e.g. financial problems being rare
     // but becoming super (3x ish) common when the player is struggling
     // financially. This could help if those cards dont show up enough
     // in financial criseses.. is that a word? it's 02:30 something rn
+
+    if (state.currentCard.id == 'vpday') return new WonCard('defeating The Funcle.');
+
+    if (state.stats[Stat.military] < 1) return new LoseCard('your military is too weak, The Funcle invaded and won.');
+    if (state.stats[Stat.popular] < 1) return new LoseCard('you were not very popular, there was a coup.');
+    if (state.stats[Stat.finance] < 1) return new LoseCard('you let your government go bankrupt.');
+    if (state.stats[Stat.nature] < 1) return new LoseCard('you let your world become uninhabitable. Everyone died.');
+
     let card = weightedRandomCard(cardChoices, cardChoices.map(card => card.rarity));
     if (card == undefined || cardChoices.length < 1) return new EmptyCard();
-
-    console.log(card)
 
     return card;
 }
 
 function weightedRandomCard(items: Card[], weights: number[]) {
     let i;
-    console.log(items);
-    console.log(weights);
+
     for (i = 0; i < weights.length; i++)
         weights[i] += weights[i - 1] || 0;
     
@@ -74,46 +89,3 @@ function weightedRandomCard(items: Card[], weights: number[]) {
     
     return items[i];
 }
-
-// Sentient horses
-// Blowback from discovery of embezzlement
-// death of musiciain
-// funcle propoganda
-// public presence
-// food safety
-// school funding
-// violence & terrorism
-// op-ed on marriage
-// something is wrong in the village
-// polic state.. stop it?
-// open borders to whales?
-// FREE SPEECH BLOWBACK
-// election
-// mental health crisis
-// dinosaur support
-// renewable energy
-// misinformation / 5g
-// horses gaining sentience
-// burn out
-// immigration concerns (after open borders)
-// open borders to dinos
-// establish embassy with dinos
-// establish embassy with whales
-// work closely with dinos (if embassy + support)
-// allow dinosaurs full citizenship (if working closely)
-// share intelligence with dinosaurs (if citizenship)
-// combine military with dinosaurs (if intelligence)
-// allow dinosaurs to hold leadership positions (if combine military)
-// fully integrate with dinosaurs, allow them to make Pony Planet capitol (if hold leadership)
-// launch first assault with dinosaurs (if fully integrated)
-// The Funcle on run (if assault)
-// Request extra support from whales (if Funcle on run)
-// Allow whales citizenship (if dinosaurs citizenship)
-// Authorise state of emergency and maximum military spending
-// Authorise indiscriminate bombardment
-// Negotiate terms of surrender with The Funcle's army
-// Statement anouncing victory and thanking whales and dinos
-
-// public happy with mhealth response
-// public happy with dinosaurs
-// public dissapointed with no immigration (allow an out)

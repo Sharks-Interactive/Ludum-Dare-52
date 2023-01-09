@@ -29,9 +29,9 @@ export class LogisticsCard extends Card {
         ],
         [ // Effects if the user selects positive
             new Effect(0, Stat.military),
-            new Effect(0, Stat.popular),
-            new Effect(-1, Stat.finance),
-            new Effect(0, Stat.nature)
+            new Effect(5, Stat.popular),
+            new Effect(-12, Stat.finance),
+            new Effect(-6, Stat.nature)
         ]
     ];
 

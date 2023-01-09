@@ -43,7 +43,6 @@ export class TryDiplomacyCard extends Card {
     blockerIds: string[] = [];
 
     requirementsFullfilled(state: GameState): boolean { 
-        console.log('OWNED CARDS ARE AS FOLLOWS' + state.ownedCards.toString());
         return !state.ownedCards.includes('raise-military-one-y') && state.ownedCards.includes('card-intro-y'); 
     }
 }
