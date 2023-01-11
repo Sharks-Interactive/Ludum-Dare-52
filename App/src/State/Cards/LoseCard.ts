@@ -8,9 +8,8 @@ export class LoseCard extends Card {
 
         this.description = `
             The Pony Planet office is overrun, you've lost because ${winMsg}. 
-            That's it. Thank you so much for playing. Rate my game if you'd like.
-            You can keep hitting buttons and see what happens and stuff but if you do.. just.. good luck.
-            Or you can refresh to play again.
+            That's it. Thank you for playing. Rate my game if you'd like.
+            You can refresh to keep playing.
         `;
     }
 
@@ -26,7 +25,7 @@ export class LoseCard extends Card {
 
     /** If the card has special options, besides just yes/no */
     options: string[] = ['', ''];
-    footer: string = 'im exhausted bro';
+    footer: string = 'tough luck';
 
     /** A list of effects  */
     effects: Effect[][] = [

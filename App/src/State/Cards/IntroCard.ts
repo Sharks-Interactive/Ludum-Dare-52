@@ -8,7 +8,7 @@ export class IntroCard extends Card  {
     description: string = `
         President Choclate? It happened. Our worst fears have come true. They've split away from Pony Planet.
         Defectors from our Grand Army Of the Horses have formed a cell, they call themselves the Army Of the Ponies.
-        They are intent on making enslaving ponies legal again. We should put out a statement condoning them. Now.
+        They are intent on making enslaving ponies legal again. We should put out a statement condemning them. Now.
     `;
 
     footer: string = "Grand Army Of the Horses Intelligence";

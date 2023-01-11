@@ -12,7 +12,7 @@ export class AttackedCard extends Card {
 
     title: string = 'attacked!';
     description: string = `
-        It is a tradgedy. The Army Of the Ponies has launched missiles against our city center because
+        It is a tragedy. The Army Of the Ponies has launched missiles against our city center because
         our military is too weak to stop them. The public is outraged. We must promise we will retaliate
         and prevent this from happening again.
     `;

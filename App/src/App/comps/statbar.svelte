@@ -11,17 +11,21 @@
 </script>
 
 <div class="statContainer">
-    <h3 class="label {labelClassMap[effectToIndex(effect)]}">{label}</h3>
+    <h3 class="label {labelClassMap[effectToIndex(effect)]} {progress + effect < 1 ? 'boldLabel' : ''}">{label}</h3>
     <div class="progress rounded-1 w-100">
         <div class="progress-bar" role="progressbar" aria-label="{label}" 
             style="width: {effect >= 0 ? progress : progress + effect}%; transition: all 0.6s ease"></div>
 
         <div class="progress-bar {barClassMap[effectToIndex(effect)]}" role="progressbar" aria-label="{label}" 
-            style="width: {Math.abs(effect)}%; transition: all 0.6s ease"></div>
+            style="width: {progress + effect < 1 ? 100 : Math.abs(effect)}%; transition: all 0.6s ease"></div>
     </div>
 </div>
 
 <style>
+    .boldLabel {
+        font-weight: bold;
+    }
+
     .label {
         margin: 0;
 

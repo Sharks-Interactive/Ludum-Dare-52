@@ -9,9 +9,9 @@
 <div class="abModal">
     <div>
         <div class="d-flex" style="width: 100%; justify-content: center;">
-            <h5 on:click="{() => selection = 'abt'}" 
+            <h5 on:click="{() => selection = 'abt'}" style="cursor: pointer;"
                 class="w-100 text-{selection == 'abt' ? 'success' : 'secondary'}">about</h5>
-            <h5 on:click="{() => selection = 'docs'}" 
+            <h5 on:click="{() => selection = 'docs'}" style="cursor: pointer;"
                 class="w-100 text-{selection == 'docs' ? 'success' : 'secondary'}">how to play</h5>
             <button type="button" class="btn-close btn-close-white" on:click="{() => open = false}"></button>
         </div>
@@ -45,7 +45,7 @@
                 9-1-23
                 <br /><br /><br />
                 <div class="d-flex" style="justify-content: center;">
-                    <img src="../assets/logo.png" style="width: 25px; height: 25px;">
+                    <img src="assets/logo.png" style="width: 25px; height: 25px;">
                     <h4>Sharks Interactive</h4>
                 </div>
             {:else}

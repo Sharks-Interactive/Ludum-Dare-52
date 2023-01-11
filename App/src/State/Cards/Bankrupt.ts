@@ -6,7 +6,7 @@ export class BankruptCard extends Card {
     /** A unique identifier for this card */
     id: string = 'bankrupt';
     /** Multiplier on how often this card can be picked */
-    rarity: number = 1;
+    rarity: number = 0.3;
     /** If this card can only be shown once */
     unique: boolean = false;
 

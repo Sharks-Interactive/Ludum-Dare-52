@@ -10,7 +10,7 @@ export class AttackedLogCard extends Card {
     /** If this card can only be shown once */
     unique: boolean = true;
 
-    title: string = 'logistical tradgedy.';
+    title: string = 'logistical tragedy.';
     description: string = `
         The enemy is using strategic blockades to prevent shipping all across Pony Planet.
         Our infrastructure is falling apart. Should we establish patrols along shipping routes?
@@ -24,14 +24,14 @@ export class AttackedLogCard extends Card {
     effects: Effect[][] = [
         [ // Effects if the user selects negative
             new Effect(0, Stat.military),
-            new Effect(-1, Stat.popular),
+            new Effect(-4, Stat.popular),
             new Effect(0, Stat.finance),
-            new Effect(0, Stat.nature)
+            new Effect(-4, Stat.nature)
         ],
         [ // Effects if the user selects positive
-            new Effect(1, Stat.military),
+            new Effect(4, Stat.military),
             new Effect(0, Stat.popular),
-            new Effect(-1, Stat.finance),
+            new Effect(-6, Stat.finance),
             new Effect(0, Stat.nature)
         ]
     ];

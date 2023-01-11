@@ -18,7 +18,7 @@ export class BridgeAccident extends Card {
     `;
 
     /** If the card has special options, besides just yes/no */
-    options: string[] = ['oh well', 'a tradgedy...'];
+    options: string[] = ['oh well', 'a tragedy...'];
     footer: string = 'sleep well';
 
     /** A list of effects  */

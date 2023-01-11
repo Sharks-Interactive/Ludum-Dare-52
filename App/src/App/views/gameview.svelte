@@ -70,7 +70,7 @@
         <div
             on:click={event => onCardClick(event)} id="ts-card"
             class="card text-bg-dark mb-3 infoCard {selected ? `card${side}` : ''}"
-             style="margin-top: auto; background-color: #212529;">
+             style="margin-top: auto; background-color: #212529; cursor: pointer;">
             <div class="card-body">
               <h5 class="card-title">{state.currentCard.title}</h5>
               <p class="card-text">{state.currentCard.description}</p>
@@ -101,13 +101,13 @@
         padding: 5%;
     }
 
-    .cardRight:hover {
+    .cardRight {
         transform: rotateZ(5deg) translateX(15px);
 
         transition-duration: 0.5s;
     }
 
-    .cardLeft:hover {
+    .cardLeft {
         transform: rotateZ(-5deg) translateX(-15px);
 
         transition-duration: 0.5s;

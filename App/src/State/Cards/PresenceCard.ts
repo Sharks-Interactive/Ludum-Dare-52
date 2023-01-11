@@ -14,7 +14,7 @@ export class PresenceCard extends Card {
     description: string = `
         Madam President, I feel the need to advise you that the public feels disconnected, you need more of a public and
         online presence. We should invest in this now.
-        Also stay out of peopl's dms.. it's for the best m'adam.
+        Also stay out of folks dms.. it's for the best m'adam.
     `;
 
     /** If the card has special options, besides just yes/no */

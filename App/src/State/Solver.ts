@@ -4,7 +4,7 @@ import { LoseCard } from "./Cards/LoseCard";
 import { StartOverCard } from "./Cards/StartOver";
 import { WonCard } from "./Cards/WonCard";
 import { gameCards } from "./CardsRegistry";
-import { Stat } from "./Effect";
+import { Effect, Stat } from "./Effect";
 import type { GameState } from "./GameState";
 
 export function advance(currentState: GameState, choice: number): GameState {
@@ -17,10 +17,10 @@ export function advance(currentState: GameState, choice: number): GameState {
     // Solve effects and apply them to stats
     currentState.activeEffects.forEach(effect => {
         if (currentState.turnNumber > effect.effectStarted + effect.fallout) {
-            currentState.activeEffects = currentState.activeEffects.splice(
-                currentState.activeEffects.indexOf(effect),
-                1
-            );
+            // Zero it out, don't remove it from the list since we are currently iterating over it and that causes elusive bugs (!)
+            // There is a more elegant solution that doesn't involve polluting the list but I can't be bothered right now
+            // TODO: Make this not use an ever increasing amount of memory
+            currentState.activeEffects[currentState.activeEffects.indexOf(effect)] = new Effect();
             return;
         }
         
@@ -33,15 +33,16 @@ export function advance(currentState: GameState, choice: number): GameState {
         `${currentState.currentCard.id}-${['n', 'y'][choice]}`
     ]);
 
-    // Pick a new card
+    // Some special logic for when you have no cards left
     if (currentState.currentCard.id == 'no-cards-left') {
-        if (choice == 0) currentState.ownedCards = [];
+        if (choice == 0) currentState.ownedCards = ['card-intro'];
         else {
             currentState.currentCard = new StartOverCard();
             return currentState;
         }
     }
 
+    // Pick a new card
     currentState.currentCard = solveForNextCard(currentState);
     
     return currentState;
@@ -53,7 +54,8 @@ function solveForNextCard(state: GameState): Card {
     // - filter out cards who are unique and we've already had
     // - randomly pick a card based on its rarity
     let cardChoices: Card[] = gameCards.filter(card => !(
-        (card.unique && state.ownedCards.includes(card.id)) || state.currentCard == card
+        (card.unique && state.ownedCards.includes(card.id)) || state.currentCard == card ||
+            (state.ownedCards.reduce((prev, cur) => prev + Number(cur == card.id), 0) > 2) // Only show non-unique cards a max of three times
     ));
     cardChoices = cardChoices.filter(card => card.requirementsFullfilled(state));
     // TODO: Only repeat non unique cards twice then drop them
@@ -65,10 +67,10 @@ function solveForNextCard(state: GameState): Card {
 
     if (state.currentCard.id == 'vpday') return new WonCard('defeating The Funcle.');
 
-    if (state.stats[Stat.military] < 1) return new LoseCard('your military is too weak, The Funcle invaded and won.');
-    if (state.stats[Stat.popular] < 1) return new LoseCard('you were not very popular, there was a coup.');
-    if (state.stats[Stat.finance] < 1) return new LoseCard('you let your government go bankrupt.');
-    if (state.stats[Stat.nature] < 1) return new LoseCard('you let your world become uninhabitable. Everyone died.');
+    if (state.stats[Stat.military] < 1) return new LoseCard(`your military is too weak, The Funcle invaded and won after ${state.turnNumber} rounds.`);
+    if (state.stats[Stat.popular] < 1) return new LoseCard(`you were not very popular, there was a coup after ${state.turnNumber} rounds.`);
+    if (state.stats[Stat.finance] < 1) return new LoseCard(`you let your government go bankrupt after ${state.turnNumber} rounds.`);
+    if (state.stats[Stat.nature] < 1) return new LoseCard(`you let your world become uninhabitable. Everyone died after ${state.turnNumber} rounds.`);
 
     let card = weightedRandomCard(cardChoices, cardChoices.map(card => card.rarity));
     if (card == undefined || cardChoices.length < 1) return new EmptyCard();

@@ -12,7 +12,7 @@ export class TryDiplomacyCard extends Card {
 
     title: string = 'anger..';
     description: string = `
-        Our statement condoning the Army Of the Ponies and their desire to bring back slavery greatly angered them.
+        Our statement condemning the Army Of the Ponies and their desire to bring back slavery greatly angered them.
         They are making threatening statements. We should attempt diplomacy, let us assure them we will remain peaceful
         unless they attack first. We will have to refrain from building up our military, if we do.
     `;

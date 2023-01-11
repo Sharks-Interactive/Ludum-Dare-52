@@ -17,7 +17,7 @@ export class TheFuncleCard extends Card {
     `;
 
     /** If the card has special options, besides just yes/no */
-    options: string[] = ['no', 'interesting'];
+    options: string[] = ['he is a person of interest', 'interesting'];
     footer: string = 'like.. the fun uncle.. right?!';
 
     /** A list of effects  */
