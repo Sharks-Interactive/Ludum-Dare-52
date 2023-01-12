@@ -31,9 +31,8 @@
                 <br />
                 <strong>Credits.</strong>
                 <br />
-                This 'game' was made for Ludum Dare 52, by me, Owen Silva.
-                I work alone and made this game alone, but it is still the product of multiple people.
-                Thank you, Fiona Thornton, for giving your time to help me brainstorm ideas not
+                This 'game' was made for Ludum Dare 52, by Fiona Thornton and me, Owen Silva.
+                Thank you, Fiona, for giving your time to help me brainstorm ideas not
                 just this Ludum Dare, but for the past 5, too. Thank you for giving me ideas when I text you out
                 of the blue asking how something should work or look or when I need to come up with a name.
                 And a special thank you for your amazing drawings. They are my favourite part of every LD.
